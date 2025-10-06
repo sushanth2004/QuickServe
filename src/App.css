@@ -217,3 +217,22 @@ body {
   background-color: #fa812f;
   color: white;
 }
+
+/* About us page styling */
+
+.about {
+  margin: 10px 20px;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  background-color: #dcd6f7;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
