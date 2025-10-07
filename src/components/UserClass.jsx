@@ -8,37 +8,29 @@ class UserClass extends React.Component {
     //creating state variables
     //creating multiple state variables
     this.state = {
-      count: 0,
-      count2: 1,
+      userInfo: {
+        name: "Sushanth Neelam",
+        location: "Hyderabad",
+      },
     };
-
-    console.log("child constructor");
   }
 
-  componentDidMount() {
-    console.log("child componentDidMount");
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/sushanth2004");
+    const json = await data.json();
+    this.setState({ userInfo: json });
+
+    console.log(json);
   }
 
   render() {
-    const { name, city, contact } = this.props; //desturcturing props
-    const { count, count2 } = this.state; //destructuring state varibles
+    const { name, location, avatar_url } = this.state.userInfo;
 
-    console.log("child render");
     return (
       <div className="user">
-        <h2>Count = {count}</h2> {/* using state variable */}
-        <h2>Count2 = {count2}</h2>
-        <button
-          onClick={() => {
-            // updating state variables
-            this.setState({ count: count + 1, count2: count2 + 2 });
-          }}
-        >
-          Increment Count
-        </button>
-        <h3>Name : {name}</h3> {/* using props */}
-        <h3>City : {city}</h3>
-        <h3>Contact : {contact}</h3>
+        <img src={avatar_url} />
+        <h3>Name : {name}</h3>
+        <h3>Location : {location}</h3>
       </div>
     );
   }

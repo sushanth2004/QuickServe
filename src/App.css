@@ -236,3 +236,9 @@ body {
   background-color: #dcd6f7;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
+.user > img {
+  width: 160px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
