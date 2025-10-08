@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Logo from "../utils/Logo.png";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [auth, setAuth] = useState("Login");
+  const onlineStatus = useOnlineStatus();
 
   const handleAuth = () =>
     auth === "Login" ? setAuth("Logout") : setAuth("Login");
@@ -15,6 +17,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>{onlineStatus ? "online 🟢" : "offline 🔴"}</li>
           <li>
             <Link className="link" to="/">
               Home
